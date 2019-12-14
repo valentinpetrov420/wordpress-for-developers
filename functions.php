@@ -37,3 +37,32 @@ register_nav_menus(
 );
 
 add_image_size ('smallest', 150, 150, true);
+
+function my_event_post_type(){
+    $args=array(
+        'labels'=>array(
+            'name' => 'Events',
+            'singular_name' => 'Event'
+        ),
+        'public'=>true,
+        'has_archive'=>true,
+        'supports'=>array('title' , 'editor' , 'thumbnail', 'excerpt' , 'categories'),
+    );
+  register_post_type('events' , $args);
+  
+}
+add_action( 'init' , 'my_event_post_type' );
+
+function my_taxonomies_event()
+{
+  $args=array(
+      'labels'=>array(
+          'name' => 'Events',
+          'singular_name' => 'Event'
+      ),
+      'public'=>true,
+      'hierrarcical'=>false,
+  );
+  register_taxonomy( 'event_category' , array('events'), $args);
+}
+add_action( 'init' , 'my_taxonomies_event' );

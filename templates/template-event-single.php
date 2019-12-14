@@ -1,10 +1,11 @@
 <?php /* 
 *
-* Template Name: Single
+* Template Name: Event
 *
 */ ?>
 
 <div class="post-single-container">
+    event
     <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
             <h1><?php the_title(); ?></h1>
             <div class="post-meta">
